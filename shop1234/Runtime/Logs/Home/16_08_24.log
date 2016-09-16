@@ -1,0 +1,43 @@
+[ 2016-08-24T10:29:35+08:00 ] 127.0.0.1 /index.php/Home/Shop/addCart.html?goods_id=26
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002279s ]
+SQL: SHOW COLUMNS FROM `sp_goods` [ RunTime:0.0115s ]
+SQL: SELECT * FROM `sp_goods` WHERE `goods_id` = 26 LIMIT 1   [ RunTime:0.0008s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001440s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001622s ]
+
+[ 2016-08-24T10:29:42+08:00 ] 127.0.0.1 /index.php/Home/Shop/addCart.html?goods_id=27
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001298s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002078s ]
+SQL: SHOW COLUMNS FROM `sp_goods` [ RunTime:0.0082s ]
+SQL: SELECT * FROM `sp_goods` WHERE `goods_id` = 27 LIMIT 1   [ RunTime:0.0006s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000926s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001031s ]
+
+[ 2016-08-24T10:39:24+08:00 ] 127.0.0.1 /index.php/Home/Shop/Common/Plugin/alipay/alipayapi.php
+ERR: 非法操作:Common
+
+[ 2016-08-24T10:40:21+08:00 ] 127.0.0.1 /index.php/Home/Shop/addCart.html?goods_id=27
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000985s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001830s ]
+SQL: SHOW COLUMNS FROM `sp_goods` [ RunTime:0.0122s ]
+SQL: SELECT * FROM `sp_goods` WHERE `goods_id` = 27 LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001183s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001333s ]
+
+[ 2016-08-24T10:40:28+08:00 ] 127.0.0.1 /index.php/Home/Shop/addCart.html?goods_id=26
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002183s ]
+SQL: SHOW COLUMNS FROM `sp_goods` [ RunTime:0.0078s ]
+SQL: SELECT * FROM `sp_goods` WHERE `goods_id` = 26 LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001904s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002132s ]
+

@@ -1,0 +1,48 @@
+[ 2016-08-14T11:33:55+08:00 ] 127.0.0.1 /index.php/head.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001082s ]
+ERR: 无法加载模块:Head
+
+[ 2016-08-14T11:33:55+08:00 ] 127.0.0.1 /index.php/center.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001197s ]
+ERR: 无法加载模块:Center
+
+[ 2016-08-14T11:33:55+08:00 ] 127.0.0.1 /index.php/down.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000040s ]
+INFO: [ app_init ] --END-- [ RunTime:0.006397s ]
+ERR: 无法加载模块:Down
+
+[ 2016-08-14T11:37:40+08:00 ] 127.0.0.1 /index.php/head.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001027s ]
+ERR: 无法加载模块:Head
+
+[ 2016-08-14T11:37:40+08:00 ] 127.0.0.1 /index.php/center.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001337s ]
+ERR: 无法加载模块:Center
+
+[ 2016-08-14T11:37:40+08:00 ] 127.0.0.1 /index.php/down.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001396s ]
+ERR: 无法加载模块:Down
+
+[ 2016-08-14T11:46:34+08:00 ] 127.0.0.1 /index.php/head.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001400s ]
+ERR: 无法加载模块:Head
+
+[ 2016-08-14T11:46:36+08:00 ] 127.0.0.1 /index.php/head.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000038s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001002s ]
+ERR: 无法加载模块:Head
+

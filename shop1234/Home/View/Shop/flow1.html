@@ -1,0 +1,121 @@
+{__NOLAYOUT__}
+<layout name="Pub/layout2" />
+
+<link rel="stylesheet" href="{:C('CSS_URL')}cart.css" type="text/css">
+
+<div style="clear:both;"></div>
+
+<!-- 主体部分 start -->
+<div class="mycart w990 mt10 bc">
+	<h2><span>我的购物车</span></h2>
+	<table>
+		<thead>
+			<tr>
+				<th class="col1">商品名称</th>
+				<th class="col3">单价</th>
+				<th class="col4">数量</th>	
+				<th class="col5">小计</th>
+				<th class="col6">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+
+<foreach name="cartinfo" item="v">
+<tr>
+<td class="col1"><a href=""><img src="{:C('SITE_URL')}{$v.logo|substr=###,2}" alt="" /></a>  <strong><a href="">{$v.goods_name}</a></strong></td>
+<td class="col3">￥<span>{$v.goods_price}</span></td>
+<td class="col4"> 
+	<a href="javascript:;" class="reduce_num" 
+	onclick="change_number('red',{$v.goods_id})"></a>
+	<input type="text" name="amount" value="{$v.goods_buy_number}" class="amount"
+	onchange="change_number('mod',{$v.goods_id})"  id="goods_number_{$v.goods_id}"	/>
+	<a href="javascript:;" class="add_num" 
+	onclick="change_number('add',{$v.goods_id})"></a>
+</td>
+<td class="col5">￥<span id="xiaoji_{$v.goods_id}">{$v.goods_total_price}</span></td>
+<td class="col6"><a href="javascript:if(confirm('确认要删除该商品么？')){del_goods({$v.goods_id})}">删除</a></td>
+</tr>
+</foreach>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="6">购物金额总计： <strong>￥ <span id="total">{$numberprice.price}</span></strong></td>
+			</tr>
+		</tfoot>
+	</table>
+<script type="text/javascript">
+//删除购物车商品信息
+function del_goods(goods_id){
+	//Ajax请求
+	$.ajax({
+		url:"{:U('Shop/delGoods')}",
+		data:{'goods_id':goods_id},
+		dataType:'json',
+		//type:'get',
+		success:function(msg){
+			//删除商品对应的tr元素
+			$('#xiaoji_'+goods_id).parent().parent().remove();
+			//最新的购物车总金额更新显示到页面
+			$('#total').html(msg.price);
+		}
+	});
+}
+
+
+//给购物车商品数量进行修改(增、减、改)操作
+//参数flag: add(增加)  red(减少)  mod(手动修改)
+//    goods_id: 代表被修改数量的商品id信息
+function change_number(flag,goods_id){
+	//获得当前商品的数量
+	var num = $('#goods_number_'+goods_id).val();
+	if(flag==='add'){
+		num++;
+	}else if(flag==='red'){
+		if(num==1){
+			alert('每个商品至少购买一个，或直接删除之');
+			return false;
+		}
+		num--;
+	}else if(flag==='mod'){
+		//检查num合法性，要求为1-20之间的数字
+		//正则表达式
+		// ^  $:从内容的开始匹配到结尾
+		// \d  : 匹配0-9之间任意一个数字
+		// [1-9]: 匹配1-9之间任意一个数字
+		// [3-5]: 匹配3/4/5之间任意一个数字
+		// 被匹配内容.match(正则):null没有匹配上   object有匹配上
+		var reg = /^([1-9]|1\d|20)$/;  //声明一个匹配1-20之间数字的正则表达式
+		if(num.match(reg)===null){
+			alert('修改的数量不合法，要求1-20之间数字');
+			window.location.href=window.location.href;//页面刷新
+			return false;
+		}
+	}else{
+		alert('参数不合法');
+		return false;
+	}
+
+	//Ajax调用服务器端，使得购物车数量得到真实增加
+	$.ajax({
+		url:"{:U('Shop/changeNumber')}",
+		data:{'num':num,'goods_id':goods_id},
+		dataType:'json',
+		type:'get',
+		success:function(msg){
+			//把最新的数量num更新给input框
+			$('#goods_number_'+goods_id).val(num);
+			//把返回的xiaoji价格 和 zongjie价格显示到页面上
+			$('#xiaoji_'+goods_id).html(msg.xiaoji);
+			$('#total').html(msg.zongji);
+		}
+	});
+}
+</script>
+	<div class="cart_btn w990 bc mt10">
+		<a href="" class="continue">继续购物</a>
+		<a href="{:U('Shop/flow2')}" class="checkout">结 算</a>
+	</div>
+</div>
+<!-- 主体部分 end -->
+
+<div style="clear:both;"></div>
